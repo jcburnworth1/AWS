@@ -91,3 +91,45 @@ account_df = pd.concat(account_df_list)
 account_df.head()
 
 ##### S3 Object HTML #####
+## Output HTML version of data frame
+account_df.to_html('account_data.html',
+                   render_links=True,
+                   columns=['Account_Type','Account_Name'],
+                   border=1)
+
+## Send HTML data frame to S3
+s3.upload_file(Bucket=BUCKET,
+               Filename='account_data.html',
+               Key='table.html',
+               ExtraArgs={'ContentType':'text/html',
+                          'ACL':'public-read'})
+
+## Send Image to S3
+s3.upload_file(Bucket=BUCKET,
+               Filename='account_data.png',
+               Key='plot_image.png')
+
+## Generate an Index Page
+## List Objects
+response = s3.list_objects(Bucket=BUCKET)
+
+## Convert response to data frame
+objects_df = pd.DataFrame(response['Contents'])
+
+## Create a column "Link" that contains website url + key
+# https://s3.console.aws.amazon.com/s3/buckets/gid-requests-jc/?region=us-east-1
+base_url = 'https://gid-requests-jc.s3.amazonaws.com/'
+objects_df['Link'] = base_url + objects_df['Key']
+
+## Output HTML version of data frame
+objects_df.to_html('account_listing.html',
+                   render_links=True,
+                   columns=['Link','LastModified','Size'],
+                   border=1)
+
+## Upload Indexing Page
+s3.upload_file(Bucket=BUCKET,
+               Filename='account_listing.html',
+               Key='index.html',
+               ExtraArgs={'ContentType':'text/html',
+                          'ACL':'public-read'})
