@@ -7,6 +7,7 @@ AWS_KEY_ID = os.environ['access_key_id']
 SECRET_ACCESS_KEY = os.environ['secret_access_key']
 REGION = os.environ['region']
 TOPIC = 'city_alerts'
+TOPICARN = None
 
 ##### Setup S3 Client #####
 sns = boto3.client('sns',
