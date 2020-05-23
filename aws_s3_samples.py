@@ -16,6 +16,7 @@ s3 = boto3.client('s3',
                   aws_access_key_id=AWS_KEY_ID,
                   aws_secret_access_key=SECRET_ACCESS_KEY,
                   verify=False)
+
 ##### Basics #####
 ## Create Bucket
 bucket = s3.create_bucket(Bucket=BUCKET)
