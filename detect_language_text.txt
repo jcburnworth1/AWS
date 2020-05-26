@@ -1,0 +1,3 @@
+Raw data (also known as primary data) is a term for data collected from a source. Raw data has not been subjected to processing or any other manipulation, and are also referred to as primary data. Raw data is a relative term (see data). Raw data can be input to a computer program or used in manual procedures such as analyzing statistics from a survey. The term can refer to the binary data on electronic storage devices such as hard disk drives (also referred to as low-level data).
+
+
