@@ -7,7 +7,7 @@ AWS_KEY_ID = os.environ['access_key_id']
 SECRET_ACCESS_KEY = os.environ['secret_access_key']
 REGION = os.environ['region']
 
-##### Setup SNS Client #####
+##### Setup Rekognition Client #####
 rekog = boto3.client('rekognition',
                      region_name=REGION,
                      aws_access_key_id=AWS_KEY_ID,
