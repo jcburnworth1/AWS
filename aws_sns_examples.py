@@ -9,7 +9,7 @@ REGION = os.environ['region']
 TOPIC = 'city_alerts'
 TOPICARN = None
 
-##### Setup S3 Client #####
+##### Setup SNS Client #####
 sns = boto3.client('sns',
                    region_name=REGION,
                    aws_access_key_id=AWS_KEY_ID,
