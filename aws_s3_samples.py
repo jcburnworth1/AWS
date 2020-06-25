@@ -14,8 +14,7 @@ FILENAME = 'Account_20200305.txt'
 s3 = boto3.client('s3',
                   region_name=REGION,
                   aws_access_key_id=AWS_KEY_ID,
-                  aws_secret_access_key=SECRET_ACCESS_KEY,
-                  verify=False)
+                  aws_secret_access_key=SECRET_ACCESS_KEY)
 
 ##### Basics #####
 ## Create Bucket
